@@ -24,7 +24,7 @@ export function AddItemDialog() {
     e.preventDefault();
     if (!title || !amount) return;
 
-    // addExpense(title, parseFloat(amount), category);
+    addExpense(title, parseFloat(amount), category);
     setTitle("");
     setAmount("");
     setOpen(false);
@@ -33,8 +33,7 @@ export function AddItemDialog() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger
-        render={<Button className="bg-indigo-500 hover:bg-indigo-600" />}
-      >
+        render={<Button className="bg-indigo-500 hover:bg-indigo-600" />}>
         + Add Expense
       </DialogTrigger>
       <DialogContent>
@@ -72,8 +71,7 @@ export function AddItemDialog() {
               value={category}
               onChange={(e) =>
                 setCategory(e.target.value as Expense["category"])
-              }
-            >
+              }>
               {categoryOptions.map((option) => (
                 <option key={option.id} value={option.value}>
                   {option.label}
@@ -83,8 +81,7 @@ export function AddItemDialog() {
           </div>
           <Button
             type="submit"
-            className="w-full bg-blue-500 hover:bg-blue-600"
-          >
+            className="w-full bg-blue-500 hover:bg-blue-600">
             Save Expense
           </Button>
         </form>
